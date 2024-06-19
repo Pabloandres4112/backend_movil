@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentacio de la API</title>
+</head>
+<body>
+    <h1>Documentación de la API - Recursos</h1>
+    <h3>Registrar Recurso</h3>
+    <table>
+        <tr><td>Número</td> <td>1</td></tr>
+        <tr><td>Nombre del Servicio</td> <td>Registrar Tipo de Recurso</td></tr>
+        <tr><td>URL</td>  <td>/RegistroRecurso</td></tr>
+        <tr><td>Descripción</td>  <td>Permite registrar un nuevo recurso en la base de datos</td></tr>
+        <tr><td>Metodo HTTP</td>  <td>POST</td></tr>
+        <tr><td>Header</td>  <td>Token:</td></tr>
+        <tr><td>Usuarios</td> <td>Administrador</td></tr>
+        <tr><td>Request json</td>  <td>{"nombre_recursos":pala","cantidad_medida":2, "unidades_medidas":"unidad","extras":"por el momento nada"}</td></tr>
+        <tr><td>Respuestas json</td>  <td>   
+        Correcto: 
+        Status: 200
+        json:
+        { 
+            "status": 200,
+            "message": "Se registro el recurso con éxito",
+    }
+    <br>
+    Incorrecto:
+    
+    Status: 403
+    body:{
+        "status": 403,
+        "message" : 'No se registró el recurso',
+    }
+    <br>
+    Error: 
+    
+    Status: 500 
+    json: {
+        status: 500,
+        "message" : "Error en el sistema"
+    }
+    </td></tr>
+    <tr><td>Programador</td><td>Esteban Alejandro Gaviria - deveag</td></tr>
+    </table>
+    <br>
+    <h3>Actualizar Recurso</h3>
+    <table>
+        <tr><td>Número</td> <td>2</td></tr>
+        <tr><td>Nombre del Servicio</td>  <td>Actualizar recurso</td></tr>
+        <tr><td>URL</td>  <td>/actualizarRecurso/:id</td></tr>
+        <tr><td>Descripción</td>  <td>Permite actualizar una tipo de recurso existente en la base de datos por medio del id</td></tr>
+        <tr><td>Metodo HTTP</td>  <td>PUT</td></tr>
+        <tr><td>Headers</td>  <td>Token:</td></tr>
+        <tr><td>Usuario</td> <td>Adminitrador</td></tr>
+        <tr><td>Request json</td>  <td>{"nombre_recursos":"pico","cantidad_medida":1, "unidades_medidas":"unidad","extras":"nada"}</td></tr>
+        <tr><td>Respuestas json</td>  <td>   
+        Correcto: 
+        Status: 200
+        json:
+        {
+            "status": 200,
+            "message": "Se actualizó con éxito",
+        }
+    <br>
+    Incorrecto:
+    
+    Status: 404
+    body:{
+        "status": 404,
+        "message" : 'No se encontró el registro para actualizar'
+    }
+    <br>
+    Error: 
+    
+    Status: 500 
+    json: {
+        "status": 500,
+        "message" : "Error en el sistema"
+    }
+    </td></tr>
+    <tr><td>Programador</td> <td>Esteban Alejandro Gaviria - deveag</td></tr>
+    </table>
+    <h3>Buscar Recurso</h3>
+    <table>
+        <tr><td>Número</td> <td>3</td></tr>
+        <tr><td>Nombre del Servicio</td>  <td>Buscar Recurso</td></tr>
+        <tr><td>URL</td>  <td>/buscarRecurso/:nombre</td></tr>
+        <tr><td>Descripción</td>  <td>Permite buscar una recurso en la base de datos</td></tr>
+        <tr><td>Metodo HTTP</td>  <td>GET</td></tr>
+        <tr><td>Header</td>  <td>Token:</td></tr>
+        <tr><td>Usuario</td> <td>Administrador </td></tr>
+        <tr><td>Request json</td>  <td></td></tr>
+        <tr><td>Respuesta json</td>  <td>   
+        Correcto: 
+        Status: 200
+        json:
+        [
+        {"id_tipo_recursos": 1, "nombre_recursos":"pico","cantidad_medida":1, "unidades_medidas":"unidad","extras":"nada", "estado": "activo"}
+        ]
+    <br>
+    Incorrecto:
+    
+    Status: 404
+    body:{
+        "status": 404,
+        "message" : "No se encontraron resultados para la búsqueda."
+    }
+    <br>
+    Error: 
+    
+    Status: 500 
+    json: {
+        "status": 500,
+        "message" : "Error en el sistema"
+    }
+    </td></tr>
+    <tr><td>Programador</td> <td>Esteban Alejandro Gaviria - deveag</td></tr>
+    </table>
+    <h3>cambiar Estado Recurso</h3>
+<table>
+  <tr><td>Número</td> <td>4</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Cambiar el estado del recurso</td></tr>
+  <tr><td>URL</td>  <td>/desactivar/Recurso/:id</td></tr>
+  <tr><td>Descripcion</td>  <td>Permite cambiar el estado de un recurso registrado en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>PUT</td></tr>
+  <tr><td>Usuarios</td> <td>Administrador</td></tr>
+  <tr><td>Header</td>  <td>Token:</td></tr>
+  <tr><td>Request json</td>  <td>estado: "agotado"</td></tr>
+  <tr><td>Respuesta json</td>  <td>
+    Correcto:
+    Status: 200 OK
+    {
+      "status": 200,
+      "mensaje": "El estado del recurso ha sido cambiado exitosamente"
+    }
+  <br>
+Incorrecto:
+
+Status: 404  Not Found
+{
+  "status": 404,
+  "mensaje": "No se pudo cambiar el estado del recurso"
+}
+<br>
+Error:
+
+Status: 500 Internal Server Error
+{
+  status: 500,
+  "message" : "Error en el sistema"
+}
+</td></tr>
+<tr><td>Programador</td> <td>Esteban Alejandro Gaviria - deveag</td></tr>
+</table>
+    <h3>Listar Recurso</h3>
+    <table>
+        <tr><td>Número</td> <td>5</td></tr>
+        <tr><td>Nombre del Servicio</td>  <td>Listar Recurso</td></tr>
+        <tr><td>URL</td>  <td>/listarRecurso</td></tr>
+        <tr><td>Descripción</td>  <td>Permite listar los recursos registrados en la base de datos</td></tr>
+        <tr><td>Metodo HTTP</td>  <td>GET</td></tr>
+        <tr><td>Usuarios</td> <td>Administrador</td></tr>
+        <tr><td>Header</td>  <td>Token:</td></tr>
+        <tr><td>Request json</td>  <td></td></tr>
+        <tr><td>Respuesta json</td>  <td>   
+        Correcto: 
+        Status: 200
+        json:
+        [
+        {"id_tipo_recursos": 1, "nombre_recursos":"pico","cantidad_medida":1, "unidades_medidas":"unidad","extras":"nada", "estado": "activo"}
+        ]
+    <br>
+    Incorrecto:
+    
+    Status: 404
+    body:{
+        "status": 404,
+        "message" : "No hay recursos"
+    }
+    <br>
+    Error: 
+    
+    Status: 500 
+    json: {
+        "status": 500,
+        "message" : "Error en el sistema"
+    }
+    </td></tr>
+    <tr><td>Programador</td> <td>Esteban Alejandro Gaviria - deveag</td></tr>
+    </table>
+        
+    </body>
+    </body>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentacion API</title>
+<body>
+  <h1>Documentación de la API - programación</h1>
+  <h3>Registrar Programación</h3>
+  <table>
+      <tr><td>Número</td> <td>1</td></tr>
+      <tr><td>Nombre del Servicio</td>  <td>registrar programaciones</td></tr>
+      <tr><td>URL</td>  <td>/registrarProgramacion</td></tr>
+      <tr><td>Descripción</td>  <td>Permite registrar una nueva programacion en la base de datos</td></tr>
+      <tr><td>Metodo HTTP</td>  <td>POST</td></tr>
+      <tr><td>Header</td>  <td>Token:</td></tr>
+      <tr><td>Usuarios</td>  <td>Administrador</td></tr>
+      <tr><td>Request json</td>  <td>  {
+        "fecha_inicio": "2024-08-04T05:00:00.000Z",
+        "fecha_fin": "2024-09-09T05:00:00.000Z",
+        "fk_id_usuario": 1,
+        "fk_id__actividad": 2,
+        "fk_id_variedad": 3
+      }</td></tr>
+      <tr><td>Respuesta json</td>  <td>   
+      Correcto: 
+      Status: 200
+      json:
+      {
+        "status": 200,
+        "message": "Programación registrada con exito"
+      }
+  <br>
+  Incorrecto:
+  
+  Status: 404
+  json:{
+      "status": 404,
+      "message" : "hay un error no se pudo guardar"
+  }
+  <br>
+  Error: 
+  
+  Status: 500 
+  json: {
+      "status": 500,
+      "message" : "Error en el sistema"
+  }
+  </td></tr>
+  <tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+  </table>
+  <br>
+  <h3>Actualizar Programación</h3>
+  <table>
+      <tr><td>Número</td> <td>2</td></tr>
+      <tr><td>Nombre del Servicio</td>  <td>Actualizar programaciones</td></tr>
+      <tr><td>URL</td>  <td>actualizarProgramacion/:id_programacion</td></tr>
+      <tr><td>Descripción</td>  <td>Permite actualizar una programación existente en la base de datos</td></tr>
+      <tr><td>Metodo HTTP</td>  <td>PUT</td></tr>
+      <tr><td>Header</td>  <td>Token:</td></tr>
+      <tr><td>Usuarios</td>  <td>Administrador</td></tr>
+      <tr><td>Request json</td>  <td>  {
+        "fecha_inicio": "2024-05-04T05:00:00.000Z",
+        "fecha_fin": "2024-05-09T05:00:00.000Z",
+        "fk_id_usuario": 1,
+        "fk_id__actividad": 1,
+        "fk_id_variedad": 3
+      }</td></tr>
+      <tr><td>Respuesta json</td>  <td>   
+      Correcto: 
+      Status: 200
+      json:
+      {
+        "status": 200,
+        "message": "La programación ha sido actualizada"
+      }
+  <br>
+  Incorrecto:
+  
+  Status: 404
+  json:{
+      "status": 404,
+      "message" : "No se pudo actualizar la programación"
+  }
+  <br>
+  Error: 
+  
+  Status: 500 
+  json: {
+      "status": 500,
+      "message" : "Error en el sistema"
+  }
+  </td></tr>
+  <tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+  </table>
+  
+  <h3>Cambiar Estado de una Programación</h3>
+  <table>
+  <tr><td>Número</td> <td>3</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Cambiar el estado de una programación</td></tr>
+  <tr><td>URL</td>  <td>/desactivar/Programacion/:id</td></tr>
+  <tr><td>Descripción</td>  <td>Permite cambiar el estado de una programación registrada en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>PUT</td></tr>
+  <tr><td>Header</td>  <td>Token:</td></tr>
+  <tr><td>Usuarios</td>  <td>Administrador</td></tr>
+  <tr><td>Request json</td>  <td>{"estado": "inactivo"}</td></tr>
+  <tr><td>Respuesta json</td>  <td>   
+  Correcto: 
+  Status: 200
+  json:
+  {
+    "status": 200,
+    "message": "Se cambio el estado correctamente"
+  }
+  <br>
+  Incorrecto:
+  
+  Status: 404
+  json:{
+  "status": 404,
+  "message" : "No se pudo cambiar el estado"
+  }
+  <br>
+  Error: 
+  
+  Status: 500 
+  json: {
+  "status": 500,
+  "message" : "Error en el sistema"
+  }
+  </td></tr>
+  <tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+  </table>
+    <br>
+  <h3>Buscar Programación</h3>
+  <table>
+  <tr><td>Número</td> <td>4</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Buscar programaciones</td></tr>
+  <tr><td>URL</td>  <td>/buscarProgramacion/:nombre</td></tr>
+  <tr><td>Descripción</td>  <td>Permite buscar una Programacion registrada en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>GET</td></tr>
+  <tr><td>Header</td>  <td>Token:</td></tr>
+  <tr><td>Usuarios</td>  <td>Administrador</td></tr>
+  <tr><td>Request json</td>  <td></td></tr>
+  <tr><td>Respuesta json</td>  <td>   
+  Correcto: 
+  Status: 200
+  json:
+  {
+    "id_programacion": 1,
+    "fecha_inicio": "2024-05-04T05:00:00.000Z",
+    "fecha_fin": "2024-05-09T05:00:00.000Z",
+    "nombre_usuario": "pablo",
+    "nombre_actividad": "fumigare",
+    "nombre_variedad": "zanahoria",
+    "estado": "activo"
+  }
+  <br>
+  Incorrecto:
+  
+  Status: 404
+  json:{
+  "status": 404,
+  "message" : "No se encontraron resultados para la búsqueda"
+  }
+  <br>
+  Error: 
+  
+  Status: 500 
+  json: {
+  "status": 500,
+  "message" : "Error en el sistema"
+  }
+  </td></tr>
+  <tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+  </table> 
+  <br>
+  <h3>Listar Programación</h3>
+  <table>
+  <tr><td>Número</td> <td>5</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Listar programaciones</td></tr>
+  <tr><td>URL</td>  <td>/listarProgramacion</td></tr>
+  <tr><td>Descripción</td>  <td>Permite obtener una lista de todas las programaciones registradas en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>GET</td></tr>
+  <tr><td>Header</td>  <td>Token:</td></tr>
+  <tr><td>Usuarios</td>  <td>Administrador</td></tr>
+  <tr><td>Request json</td>  <td></td></tr>
+  <tr><td>Respuesta json</td>  <td>   
+  Correcto: 
+  Status: 200
+  json:  {
+    "id_programacion": 1,
+    "fecha_inicio": "2024-05-04T05:00:00.000Z",
+    "fecha_fin": "2024-05-09T05:00:00.000Z",
+    "nombre_usuario": "pablo",
+    "nombre_actividad": "fumigare",
+    "nombre_variedad": "zanahoria",
+    "estado": "activo"
+  }
+  <br>
+  Incorrecto:
+  
+  Status: 404
+  json:{
+    "status": 404,
+    "message": "No hay ninguna programación"
+  }
+  <br>
+  Error: 
+  
+  Status: 500 
+  json: {
+  "status": 500,
+  "message" : "Error en el sistema"
+  }
+  </td></tr>
+  <tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentacion API</title>
+<body>
+  <center><h1>Documnetación de la API</h1></center>
+  <h1>Documentación de la API - Usuarios</h1>
+  <h3>Listar Usuario</h3>
+<table>
+  <tr><td>Número</td> <td>1</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Listar Usuarios</td></tr>
+  <tr><td>URL</td>  <td>/listarUsuario</td></tr>
+  <tr><td>Descripcion</td>  <td>Permite listar los usuarios registrados en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>Get</td></tr>
+  <tr><td>Header</td>  <td>Token:</td></tr>
+  <tr><td>Request json</td>  <td></td></tr>
+  <tr><td>Respuesta json</td>  <td>
+    Correcto:
+    status: 200 OK
+    {   "id_usuario": 1,
+        "nombre": "Ronaldo",
+        "apellido":"Ledezma",
+        "correo":"ronaldoledezma@gmail.com",
+        "password":"ronaldo333",
+        "rol":"administrador",
+        "estado":"activo"
+      }
+  <br>
+    Incorrecto:
+
+    404 Not Found
+    {
+      "status": 404,
+      "message": "No hay usuarios registrados"
+    }
+    <br>
+    Error:
+    status: 500 Internal Server Error
+    {
+        "status":  500,
+        "message": "Error en el sistema"
+    }
+  </td></tr>
+  <tr><td>Programador</td> <td>Pablo Andres Perdomo - devpap</td></tr>
+  </table>
+  <br>
+  <h3>Registrar Usuario</h3>
+  <table>
+  <tr><td>Número</td> <td>2</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Registrar Usuarios</td></tr>
+  <tr><td>URL</td>  <td>/registrarUsuario</td></tr>
+  <tr><td>Descripcion</td>  <td>Permite Registrar nuevos usuarios en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>POST</td></tr>
+  <tr><td>Header</td>  <td>Token:</td></tr>
+  <tr><td>Request json</td> <td>{
+    "nombre": "Pablo",
+    "apellido":"Perdomo",
+    "correo":"pabloperdomo@gmail.com",
+    "password":"pablo999",
+    "rol":"administrador"
+  }</td></tr>
+  <tr><td>Respuesta json</td>  <td>
+    Correcto:
+    Status: 200 OK
+    {
+      "status": 200,
+      "message": "Usuario registrado exitosamente"
+    }
+  <br>
+  Incorrecto:
+
+  Status: 403 Not Found
+    {
+    "status": 403,
+    "mensaje": "No se pudo registrar el usuario"
+    }
+  <br>
+  Error:
+  status: 500 Internal Server Error
+  {
+    "status":  500,
+    "message": "Error en el sistema"
+  }
+</td></tr>
+<tr><td>Programador</td> <td>Pablo Andres Perdomo - devpap</td></tr>
+</table>
+<br>
+<h3>Desactivar o Activar el Usuario</h3>
+<table>
+  <tr><td>Número</td> <td>3</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Desactivar o Activar Usuarios</td></tr>
+  <tr><td>URL</td>  <td>/desactivar/Usuario/:id</td></tr>
+  <tr><td>Descripcion</td>  <td>Permite desactivar o activar usuarios en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>PUT</td></tr>
+  <tr><td>Header</td>  <td>Token:</td></tr>
+  <tr><td>Request json</td>  <td>estado: "inactivo</td></tr>
+  <tr><td>Respuesta json</td>  <td>
+    Correcto:
+    Status: 200 OK
+    {
+      "status": 200,
+      "mensaje": "El estado del usuario ha sido cambiado exitosamente"
+    }
+  <br>
+Incorrecto:
+
+Status: 404  Not Found
+{
+  "status": 404,
+  "mensaje": "No se pudo cambiar el estado del usuario"
+}
+<br>
+Error:
+
+Status: 500 Internal Server Error
+{
+  status: 500,
+  "message" : "Error en el sistema"
+}
+</td></tr>
+<tr><td>Programador</td> <td>Pablo Andres Perdomo - devpap</td></tr>
+</table>
+<br>
+<h3>Actualizar Usuario</h3>
+<table>
+  <tr><td>Número</td> <td>4</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Actualizar Usuario</td></tr>
+  <tr><td>URL</td>  <td>/actualizarUsuario/:id</td></tr>
+  <tr><td>Descripcion</td>  <td>Permite Actualizar un usuario registrado en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>PUT</td></tr>
+  <tr><td>Header</td>  <td>Token:</td></tr>
+  <tr><td>Request json</td>  <td>    {   
+    "nombre": "Ronaldo",
+    "apellido":"Ledezma",
+    "correo":"ronaldoledezma@gmail.com",
+    "password":"ronaldo333",
+    "rol":"administrador",
+    "estado":"activo"
+  }</td></tr>
+  <tr><td>Respuesta json</td>  <td>
+    Correcto:
+    Status: 200 OK
+    {
+      status: 200,
+      "mensaje": "El usuario ha sido actualizado."
+    }
+  <br>
+  Status: 404 Not Found
+  {
+    "status": 404,
+    "mensaje": "No se pudo actualizar el usuario, inténtalo de nuevo."
+  }
+  <br>
+  Error:
+  status: 500 Internal Server Error
+  {
+    "status": 500,
+    "message" : "Error en el sistema"
+  }
+  </td></tr>
+  <tr><td>Programador</td> <td>Pablo Andres Perdomo - devpap</td></tr>
+  </table>
+  <br>
+  <h3>Buscar Usuario</h3>
+  <table>
+  <tr><td>Número</td> <td>5</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Buscar Usuario</td></tr>
+  <tr><td>URL</td>  <td>/buscarUsuarios/:nombre</td></tr>
+  <tr><td>Descripcion</td>  <td>Permite buscar usuarios registrados en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>Get</td></tr>
+  <tr><td>Header</td>  <td>Token:</td></tr>
+  <tr><td>Request json</td>  <td></td></tr>
+  <tr><td>Respuesta json</td>  <td>
+    Correcto:
+    Status: 200 OK
+    {   "id_usuario": 1,
+        "nombre": "Ronaldo",
+        "apellido":"Ledezma",
+        "correo":"ronaldoledezma@gmail.com",
+        "password":"ronaldo333",
+        "rol":"administrador",
+        "estado":"activo"
+      }
+  <br>
+Incorrecto:
+
+Status: 404 Internal Server Error
+{
+  "status": 404,
+  "message" : "No se encontro el usuario"
+}
+<br>
+Error:
+
+Status: 500 Internal Server Error
+{
+  status: 500,
+  "message" : "Error en el sistema"
+}
+</td></tr>
+<tr><td>Programador</td> <td>Pablo Andres Perdomo - devpap</td></tr>
+</table>
+</body>
+</html>
+

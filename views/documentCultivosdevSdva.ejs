@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentacion de la API</title>
+</head>
+<body>
+  <h1>Documentación de la API - Cutivos</h1>
+  <h3>Listar Cultivo</h3>
+<table>
+  <tr><td>Número</td> <td>1</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Listar cultivos</td></tr>
+  <tr><td>URL</td>  <td>/listarCultivos</td></tr>
+  <tr><td>Descripción</td>  <td>Permite listar los cultivos registrados en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>GET</td></tr>
+  <tr><td>Header:</td>  <td>Token:</td></tr>
+  <tr><td>Usuarios</td> <td>Administrador</td></tr>
+  <tr><td>Request json</td>  <td> </td></tr>
+  <tr><td>Respuesta json</td>  <td>	
+    Correcto: 
+    Status: 200
+    json:
+    {
+      "id_cultivo": 1,
+      "fecha_inicio": "2024-05-03T05:00:00.000Z",
+      "nombre_finca": "Timana",
+      "nombre_lote": "tierra",
+      "cantidad_sembrada": 100,
+      "nombre_variedad": "zanahoria",
+      "estado": "activo"
+    }
+  <br>
+Incorrecto:
+
+Status: 404
+body:{
+  "status": 404
+  "message" : "No se encontraron cultivos."
+}
+<br>
+Error: 
+
+Status: 500 
+json: {
+  status: 500
+  "message" : "Error en el sistema"
+}
+</td></tr>
+<tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+</table>
+<br>
+<h3>Registrar Cultivo</h3>
+<table>
+  <tr><td>Número</td> <td>2</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Registrar cultivos</td></tr>
+  <tr><td>URL</td>  <td>/registrarCultivos</td></tr>
+  <tr><td>Descripción</td>  <td>Permite registrar cultivos en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>POST</td></tr>
+  <tr><td>Header:</td>  <td>Token:</td></tr>
+  <tr><td>Usuarios</td> <td>Administrador</td></tr>
+  <tr><td>Request json</td> <td>  {
+    "fecha_inicio": "2024-07-08T07:00:00.000Z",
+    "fk_id_lote": 1,
+    "cantidad_sembrada": 60,
+    "fk_id_variedad": 1
+  } </td></tr>
+  <tr><td>Respuesta json</td>  <td>	
+    Correcto: 
+    Status: 200
+    json:
+    {
+      "cultivo registrado con exito"
+  }
+  <br>
+Incorrecto:
+
+Status: 404
+body:{
+  "status": 404
+  "message" : "Fallo el registro de su cultivo"
+}
+<br>
+Error: 
+
+Status: 500 
+json: {
+  status: 500
+  "message" : "Error en el sistema"
+}
+</td></tr>
+<tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+</table>
+<br>
+<h3>Actualizar Cultivo</h3>
+<table>
+  <tr><td>Número</td> <td>3</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Actualizar cultivos</td></tr>
+  <tr><td>URL</td>  <td>/actualizarCultivo/:id_cultivo</td></tr>
+  <tr><td>Descripción</td>  <td>Permite actualizar cultivos existentes en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>PUT</td></tr>
+  <tr><td>Header:</td>  <td>Token:</td></tr>
+  <tr><td>Usuarios</td> <td>Administrador</td></tr>
+  <tr><td>Request json</td>  <td>     {
+    "fecha_inicio": "2024-05-03T05:00:00.000Z",
+    "fk_id_lote": 1,
+    "cantidad_sembrada": 100,
+    "fk_id_variedad": 1
+  }</td></tr>
+  <tr><td>Respuesta json</td>  <td>	
+    Correcto: 
+    Status: 200
+    json:
+    {
+      "El cultivo ha sido actualizado"
+  }
+  <br>
+Incorrecto:
+
+Status: 404
+body:{
+  "status": 404
+  "message": "No se pudo actualizar el cultivo"
+}
+<br>
+Error: 
+
+Status: 500 
+json: {
+  status: 500
+  "message" : "Error en el sistema"
+}
+</td></tr>
+<tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+</table>
+<br>
+<h3>Buscar Cultivo</h3>
+<table>
+  <tr><td>Número</td> <td>4</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Buscar cultivos</td></tr>
+  <tr><td>URL</td>  <td>/buscarCultivo/:nombre</td></tr>
+  <tr><td>Descripción</td>  <td>Permite buscar los cultivos por el nombre_vaiedad de una variedad registrada en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>GET</td></tr>
+  <tr><td>Header:</td>  <td>Token:</td></tr>
+  <tr><td>Usuarios</td> <td>Administrador</td></tr>
+  <tr><td>Request json</td>  <td></td></tr>
+  <tr><td>Respuesta json</td>  <td>	
+    Correcto: 
+    Status: 200
+    json:
+    {
+      "id_cultivo": 1,
+      "fecha_inicio": "2024-05-03T05:00:00.000Z",
+      "nombre_finca": "Timana",
+      "nombre_lote": "tierra",
+      "cantidad_sembrada": 100,
+      "nombre_variedad": "zanahoria",
+      "estado": "activo"
+    }
+  <br>
+Incorrecto:
+
+Status: 404
+body:{
+  "status": 404
+  "message" : "No se encontró ningún cultivo con ese nombre de variedad"
+}
+<br>
+Error: 
+
+Status: 500 
+json: {
+  status: 500
+  "message" : "Error en el sistema"
+}
+</td></tr>
+<tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+</table>
+<br>
+<h3>Desactivar o Activar el Cultivo</h3>
+<table>
+  <tr><td>Número</td> <td>5</td></tr>
+  <tr><td>Nombre del Servicio</td>  <td>Desactivar o Activar cultivos</td></tr>
+  <tr><td>URL</td>  <td>/desactivar/Cultivo/:id</td></tr>
+  <tr><td>Descripción</td>  <td>Permite desactivar o activar los cultivos registrados en la base de datos</td></tr>
+  <tr><td>Metodo HTTP</td>  <td>PUT</td></tr>
+  <tr><td>Header:</td>  <td>Token:</td></tr>
+  <tr><td>Usuarios</td> <td>Administrador</td></tr>
+  <tr><td>Request json</td> {"estado": "inactivo"}<td></td></tr>
+  <tr><td>Respuesta json</td>  <td>	
+    Correcto: 
+    Status: 200
+    body:{
+      "status": 200
+      "message" : "El estado del cultivo ha sido cambiado exitosamente"
+    }
+  <br>
+Incorrecto:
+
+Status: 404
+body:{
+  "status": 404
+  "message" : "No se pudo cambiar el estado del cultivo"
+}
+<br>
+Error: 
+
+Status: 500 
+json: {
+  status: 500
+  "message" : "Error en el sistema"
+}
+</td></tr>
+<tr><td>Programador</td> <td>Sergio Canacue España - devsce</td></tr>
+</table>
+</body>
+</html>
